@@ -5,5 +5,5 @@ out
 /target
 rustc-*
 var
-p*.ts
 datav1/
+peek*
