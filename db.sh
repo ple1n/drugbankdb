@@ -1,1 +1,1 @@
-surreal start file:data
+surreal start file:data -A --unauthenticated
