@@ -13,6 +13,9 @@ await db.connect("http://127.0.0.1:8000/rpc", {
 });
 
 //#nbts@code
+await db.query(`
+    select *, array::len(n) from [{n:["a","ak"]}, {n:["ax","an"]}] where n.any(|$v| "k" in $v)` )
+//#nbts@code
 let p = await db.query(`select * from drugs where name = "Pregabalin"`); p[0][0];
 //#nbts@code
 p[0][0].transporters.transporter[0].id
@@ -23,8 +26,7 @@ let p = await db.query(` select name, transporters.transporter.name as tn, targe
 //#nbts@code
 let p = await db.query(` select name, transporters.transporter.name as tn, targets.target.name as tgn from drugs where "Potassium voltage-gated channel subfamily H member" in targets.target.name`); p
 //#nbts@code
-await db.query(`
-    select *, array::len(n) from [{n:["a","ak"]}, {n:["ax","an"]}] where array::filter(2)` )
+
 //#nbts@code
 
 //#nbts@code
@@ -35,4 +37,9 @@ let p = await db.query(/* surrealql */ `select name from drugs where ["Tranquili
 let p = await db.query(`select categories.category from drugs where name = "Zolazepam"`)
 //#nbts@code
 p[0][0]
+//#nbts@code
+
+//#nbts@code
+let p = await db.query(`select name from drugs where "Tranquilizing Agents" in categories.category.category`);
+p
 //#nbts@code

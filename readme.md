@@ -14,9 +14,12 @@ remove one line in the database xml before importing
 ```
 <drugbank xmlns="http://www.drugbank.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.drugbank.ca http://www.drugbank.ca/docs/drugbank.xsd" version="5.1" exported-on="2024-03-14">
 
-
 ```
 as well as the matching `</drugbank>` in the end.
+
+This is step-1 which imports the XML as-is into the database. 
+
+We can do post-processing later with Deno.
 
 ## Deno notebook-ing with Jupyter
 

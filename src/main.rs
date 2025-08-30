@@ -21,7 +21,7 @@ const BUFSIZE: usize = 2000;
 static EXIT: AtomicBool = AtomicBool::new(false);
 
 #[derive(Deserialize)]
-struct Drugs; 
+struct Drugs;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -34,8 +34,12 @@ async fn main() -> Result<()> {
     let fd = File::open(PATH)?;
     let size = fd.metadata()?.size();
     let mut rd = BufReader::new(fd);
-    
-    let mut state = OpenOptions::new().write(true).read(true).create(true).open(STATE_PATH)?;
+
+    let mut state = OpenOptions::new()
+        .write(true)
+        .read(true)
+        .create(true)
+        .open(STATE_PATH)?;
     let mut last_state = String::with_capacity(20);
     state.read_to_string(&mut last_state)?;
     let last_pos: u64 = last_state.parse().unwrap_or(0);
@@ -68,7 +72,7 @@ async fn main() -> Result<()> {
             if let Some(el) = x {
                 found += 1;
                 let el = el?;
-                let _: Option<Element> =  db.create("drugs").content(el).await?;
+                let _: Option<Element> = db.create("drugs").content(el).await?;
                 let cpos = last_pos + pos.done_utf8;
                 pb.set_position(cpos);
                 state.write_at(cpos.to_string().as_bytes(), 0)?;
