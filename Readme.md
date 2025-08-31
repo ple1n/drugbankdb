@@ -1,6 +1,7 @@
 changes
 
 - updated surrealdb to v2
+- added binary `log`. this tool parses every object at your keypress and writes it to `out.json`. the parsing process is logged for debugging.
 
 ### Rust tool for importing Drug Bank XML data to SurrealDB
 

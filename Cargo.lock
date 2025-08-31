@@ -1046,7 +1046,6 @@ dependencies = [
  "crossterm 0.29.0",
  "futures",
  "indicatif",
- "ratatui",
  "serde",
  "serde_json",
  "surrealdb",

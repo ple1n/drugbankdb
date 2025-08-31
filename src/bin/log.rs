@@ -87,8 +87,14 @@ async fn main() -> Result<()> {
             if let Some(el) = x {
                 found += 1;
                 let el = el?;
-                let mut json = serde_json::to_string_pretty(&el)?;
-                
+                let json = serde_json::to_string_pretty(&el)?;
+                OpenOptions::new()
+                    .write(true)
+                    .create(true)
+                    .truncate(true)
+                    .open("./out.json")?
+                    .write_all(json.as_bytes())?;
+
                 let cpos = last_pos + pos.done_utf8;
                 state.write_at(cpos.to_string().as_bytes(), 0)?;
 
