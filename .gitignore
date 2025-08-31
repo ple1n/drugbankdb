@@ -10,3 +10,5 @@ peek*
 local/
 out.json
 data*/
+rand.json
+*.out.json

@@ -1,6 +1,7 @@
 import Surreal, {
   RecordId,
 } from "https://deno.land/x/surrealdb@v1.0.0-beta.5/mod.ts";
+export { DrugFields } from "./drug.fields.ts";
 
 export const db = new Surreal();
 

@@ -26,12 +26,6 @@ let p = await db.query(` select name, transporters.transporter.name as tn, targe
 //#nbts@code
 let p = await db.query(` select name, transporters.transporter.name as tn, targets.target.name as tgn from drugs where "Potassium voltage-gated channel subfamily H member" in targets.target.name`); p
 //#nbts@code
-
-//#nbts@code
-
-//#nbts@code
-
-//#nbts@code
 let p = await db.query(/* surrealql */ `select name from drugs where ["Tranquilizing Agents"] ANYINSIDE categories.category.category and ["Benzazepines", "Neurotoxic agents"] NONEINSIDE categories.category.category`); p
 //#nbts@code
 let p = await db.query(`select categories.category from drugs where name = "Zolazepam"`)
@@ -39,7 +33,6 @@ let p = await db.query(`select categories.category from drugs where name = "Zola
 p[0][0]
 //#nbts@code
 
-//#nbts@code
-let p = await db.query(`select name from drugs where "Tranquilizing Agents" in categories.category.category`);
-p
+//#nbts@mark
+// 
 //#nbts@code
