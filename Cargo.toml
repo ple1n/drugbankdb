@@ -6,8 +6,15 @@ edition = "2021"
 [dependencies]
 RustyXML = { path = "./RustyXML" }
 anyhow = "1.0.83"
+crossterm = { version = "0.29.0", features = ["event-stream"] }
+futures = "0.3.31"
 indicatif = "0.17.8"
+ratatui = "0.29.0"
 serde = { version = "1.0.201", features = ["derive"] }
 serde_json = "1.0.116"
 surrealdb = "2"
+syntect = "5.2.0"
+syntect-tui = "3.0.6"
 tokio = { version = "1.37.0", features = ["signal"] }
+tracing = "0.1.41"
+tracing-subscriber = "0.3.20"
